@@ -1,0 +1,15 @@
+name: Windows Server 2025
+
+on:
+  workflow_dispatch:
+
+jobs:
+  windows:
+    runs-on: windows-2025
+    steps:
+      - name: Check Windows
+        run: |
+          systeminfo
+          Get-ComputerInfo |
+            Select-Object WindowsProductName, WindowsVersion
+        shell: powershell
